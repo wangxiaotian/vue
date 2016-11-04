@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue-应用</title>
+	<style>
+		*{
+		padding:0;
+		margin:0;
+	}
+	html,body{
+		background:#f5f5f5;
+		width:100%;
+	}
+	</style>
+</head>
+<body id = 'app'>
+	<header>
+		<nav>
+			<ul>
+				<li>
+					<router-link to = "/nuomi">糯米</router-link>
+				</li>
+				<li>
+					<router-link to = "/news">新闻</router-link>
+				</li>
+				<li>
+					<router-link to = "/map">地图</router-link>
+				</li>
+				<li>
+					<router-link to = "/viedos">视频</router-link>
+				</li>
+				<li>
+					<router-link to = "/tieba">贴吧</router-link>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<router-view></router-view>
+	<script src = "./dist/main.js"></script>
+</body>
+</html>
