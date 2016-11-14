@@ -1,16 +1,16 @@
 //	模块安装好后并没有默认引用
 //	引入模块
 
-import Vue from 'vue';
+import Vue from 'vue'; 
 import VueRouter from 'vue-router';
 import App from './components/app';
-
-
-
-//	初始化vue组件
-//	
-new Vue(APP);
-
+import Chendong from './components/chendong';
+import Xiaoding from './components/xiaoding';
+import Tudou from './components/tudou';
+import Fanqie from './components/fanqie';
+import Fengling from './components/fengling';
+//	初始化组件，这个位置有待考量
+new Vue(App);
 Vue.config.debug = true; //开启错误提示
 
 
@@ -19,7 +19,22 @@ Vue.use(VueRouter);
 
 const routes = [{
 	path : '/',
-	component : App
+	component : Chendong
+},{
+	path : '/chendong',
+	component : Chendong
+},{
+	path : '/xiaoding',
+	component : Xiaoding
+},{
+	path : '/tudou',
+	component : Tudou
+},{
+	path : '/fanqie',
+	component : Fanqie
+},{
+	path : '/fengling',
+	component : Fengling
 }]
 
 const router = new VueRouter({

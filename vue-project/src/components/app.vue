@@ -1,46 +1,58 @@
 <template>
-	<div class="page">
-		<div class="list">
-			<div class="item">
-				<p>糯米</p>
-				<p>糯米里面啥也没有</p>
-			</div>
-			<div class="item">
-				<p>糯米</p>
-				<p>糯米里面啥也没有</p>
-			</div>
-			<div class="item">
-				<p>糯米</p>
-				<p>糯米里面啥也没有</p>
-			</div>
-			<div class="item">
-				<p>糯米</p>
-				<p>糯米里面啥也没有</p>
-			</div>
-			<div class="item">
-				<p>糯米</p>
-				<p>糯米里面啥也没有</p>
-			</div>
-		</div>
-	</div>
+	<header>
+        <nav>
+            <ul>
+                <li>
+                    <router-link to="/chendong">辰东</router-link>
+                </li>
+                <li>
+                    <router-link to="/xiaoding">萧鼎</router-link>
+                </li>
+                <li>
+                    <router-link to="/tudou">天蚕土豆</router-link>
+                </li>
+                <li>
+                    <router-link to="/fanqie">番茄</router-link>
+                </li>
+                <li>
+                    <router-link to="/fengling">风凌天下</router-link>
+                </li>
+            </ul>
+        </nav>
+    </header>
 </template>
+
 <script>
-	export default{
-		el : '#app'
+	module.exports = {
+		el : '#header',
+		data : function(){
+			return {
+				'msg' : 'hello world'
+			}
+		}
 	}
 </script>
 
-<style lang = "sass">
+<style lang = "less">
 	@color-border:#ddd;
-	.page{
-		width:1200px;
+	.test{
+		width:800px;
 		margin:0 auto;
+		padding:10px 0;
+	}
+	header{
+		width:800px;
+		margin:0 auto;
+		padding:20px 0;
 		background:#fff;
-		.list{
-			width:100%;
-			.item{
-				padding:10px 0;
-				border-bottom:1px dashed @color-border;
+		nav{
+			ul{
+				display: flex;
+				li{
+					list-style: none;
+					flex:1;
+					text-align:center;
+				}
 			}
 		}
 	}

@@ -1,6 +1,6 @@
 var path = require('path');
 // NodeJS中的Path对象，用于处理目录的对象，提高开发效率。
-// 模块导入
+// 模块导入 
 module.exports = {
     // 入口文件地址，不需要写完，会自动查找
     entry: './src/main',
@@ -37,6 +37,8 @@ module.exports = {
             { test: /\.(png|jpg|gif)$/, loader: 'url-loader?limit=8192'},
         //html模板编译？
             { test: /\.(html|tpl)$/, loader: 'html-loader' },
+        //  less文件编译
+            { test : /\.less$/, loader: 'style!css!less'}
         ]
     },
     // .vue的配置。需要单独出来配置，其实没什么必要--因为我删了也没保错，不过这里就留这把，因为官网文档里是可以有单独的配置的。
@@ -56,7 +58,8 @@ module.exports = {
         // 别名，可以直接使用别名来代表设定的路径以及其他
         alias: {
             filter: path.join(__dirname, './src/filters'),
-            components: path.join(__dirname, './src/components')
+            components: path.join(__dirname, './src/components'),
+            'vue$': 'vue/dist/vue.js'
         }
     },
     // 开启source-map，webpack有多种source-map，在官网文档可以查到
