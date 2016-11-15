@@ -14,11 +14,7 @@
 
 <script>
 	module.exports = {
-		data : function(){
-			return {
-
-			}
-		}
+		
 	}
 </script>
 

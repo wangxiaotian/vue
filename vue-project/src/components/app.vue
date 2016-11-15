@@ -29,6 +29,13 @@
 			return {
 				'msg' : 'hello world'
 			}
+		},
+		ready : function(){
+			this.$http.get('url',function(data){
+				console.log('success')
+			}).error(function(data,status,req){
+				console.log('error');
+			})
 		}
 	}
 </script>

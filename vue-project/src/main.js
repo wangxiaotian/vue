@@ -3,6 +3,7 @@
 
 import Vue from 'vue'; 
 import VueRouter from 'vue-router';
+import VueResource from 'vue-resource';
 import App from './components/app';
 import Chendong from './components/chendong';
 import Xiaoding from './components/xiaoding';
@@ -14,9 +15,11 @@ new Vue(App);
 Vue.config.debug = true; //开启错误提示
 
 
-//	初始化路由
+//	使用vue插件
 Vue.use(VueRouter);
+Vue.use(VueResource);
 
+//	路由映射
 const routes = [{
 	path : '/',
 	component : Chendong
