@@ -18,7 +18,7 @@ Vue.config.debug = true; //开启错误提示
 //	使用vue插件
 Vue.use(VueRouter);
 Vue.use(VueResource);
-
+ 
 //	路由映射
 const routes = [{
 	path : '/',

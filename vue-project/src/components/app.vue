@@ -1,5 +1,5 @@
 <template>
-	<header>
+	<header> 
         <nav>
             <ul>
                 <li>
@@ -31,12 +31,15 @@
 			}
 		},
 		ready : function(){
-			this.$http.get('url',function(data){
-				console.log('success')
+			alert(1);
+		}
+		/*ready : function(){
+			this.$http.get('../api/a.json',function(data){
+				console.log('success');
 			}).error(function(data,status,req){
 				console.log('error');
 			})
-		}
+		}*/
 	}
 </script>
 
