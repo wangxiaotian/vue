@@ -1,0 +1,99 @@
+{
+    "case_list": [{
+        "id": 4364326435,
+        "doctor_id": 2565362345,
+        "doctor_entity": {
+            "id": 425624654,
+            "name": "张景",
+            "sex": 1,
+            "head_img_path": "",
+            "title": "专家",
+            "skill": "精神科",
+            "qmd": "简介：先不写了",
+            "hospital": "上海第一人民医院",
+            "department_name": "急诊科",
+            "wx_url": "buxiele",
+            "mpno": 18662170962,
+            "last_sort_id": "分页中用，string",
+            "friend_auth": "int:1",
+            "referral_auth": "int:1",
+            "consultation_auth": "int:1",
+            "is_friend": "int:1"
+        },
+        "title": "成功救治狼疮合并巨噬细胞激活综合症一例",
+        "content": "一例22岁的男性结缔组织病患者，8年来病情相对稳定。6周前先后出现发热、感冒样症状（咽喉痛、全身乏力）、全身酸痛不适、6周前先后出现发热、感冒样症状（咽喉痛、全身乏力）、全身酸痛不适、6周前先后出现发热、感冒样症状（咽喉痛、全身乏力）、全身酸痛不适、",
+        "case_pic_list": [{
+            "id": 7356725676,
+            "doctor_referral_id": 653725463,
+            "file_url": "string:buxiele"
+        }, {
+            "id": 7356725676,
+            "doctor_referral_id": 653725463,
+            "file_url": "string:buxiele"
+        }],
+        "create_date": "201601012323",
+        "read_count": 58,
+        "patient_info_list": [{
+            "id": 3145145554,
+            "patient_id": 1234234324,
+            "patient_sex": "1男",
+            "patient_age": "35",
+            "patient_disease_list": [{
+                "disease_id": 4526436134,
+                "disease_name": "腰肌劳损",
+                "disease_type": "正常疾病",
+                "other_disease_name": "其它疾病名称"
+            }],
+            "disease": "病程，什么鬼"
+        }],
+        "last_sort_id": "123"
+    }, {
+        "id": 4364326435,
+        "doctor_id": 2565362345,
+        "doctor_entity": {
+            "id": 425624654,
+            "name": "王正",
+            "sex": 1,
+            "head_img_path": "http://h.hiphotos.baidu.com/news/q%3D100/sign=2c16275b06b30f24339ae803f894d192/267f9e2f0708283848af502eb199a9014c08f16e.jpg",
+            "title": "专家",
+            "skill": "心理科",
+            "qmd": "简介：先不写了",
+            "hospital": "苏州第一人民医院",
+            "department_name": "急诊科",
+            "wx_url": "buxiele",
+            "mpno": 18662170962,
+            "last_sort_id": "分页中用，string",
+            "friend_auth": "int:1",
+            "referral_auth": "int:1",
+            "consultation_auth": "int:1",
+            "is_friend": "int:1"
+        },
+        "title": "成功救治狼疮合并巨噬细胞激活综合症一例",
+        "content": "一例22岁的男性结缔组织病患者，8年来病情相对稳定。6周前先后出现发热、感冒样症状（咽喉痛、全身乏力）、全身酸痛不适、",
+        "case_pic_list": [{
+            "id": 7356725676,
+            "doctor_referral_id": 653725463,
+            "file_url": "string:buxiele"
+        }, {
+            "id": 7356725676,
+            "doctor_referral_id": 653725463,
+            "file_url": "string:buxiele"
+        }],
+        "create_date": "201601012323",
+        "read_count": 58,
+        "patient_info_list": [{
+            "id": 3145145554,
+            "patient_id": 1234234324,
+            "patient_sex": "1男",
+            "patient_age": "35",
+            "patient_disease_list": [{
+                "disease_id": 4526436134,
+                "disease_name": "腰肌劳损",
+                "disease_type": "string:1正常疾病",
+                "other_disease_name": "string:其它疾病名称"
+            }],
+            "disease": "病程，什么鬼"
+        }],
+        "last_sort_id": "456"
+    }]
+}
