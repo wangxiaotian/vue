@@ -12,11 +12,6 @@
 	</div>
 </template>
 
-<script>
-	module.exports = {
-		
-	}
-</script>
 
 <style lang = "less">
 	.list{

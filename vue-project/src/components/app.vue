@@ -17,6 +17,9 @@
                 <li>
                     <router-link to="/fengling">风凌天下</router-link>
                 </li>
+                <li>
+                    <router-link to="/more">更多</router-link>
+                </li>
             </ul>
         </nav>
     </header>
@@ -27,19 +30,9 @@
 		el : '#header',
 		data : function(){
 			return {
-				'msg' : 'hello world'
+				
 			}
-		},
-		ready : function(){
-			alert(1);
 		}
-		/*ready : function(){
-			this.$http.get('../api/a.json',function(data){
-				console.log('success');
-			}).error(function(data,status,req){
-				console.log('error');
-			})
-		}*/
 	}
 </script>
 

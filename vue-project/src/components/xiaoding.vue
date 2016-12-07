@@ -22,7 +22,7 @@
 
 <script>
 	module.exports = {
-		data : function(){
+		data : function(){ 
 			return {
 				message : '123'
 			}

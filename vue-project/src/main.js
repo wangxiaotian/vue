@@ -10,6 +10,7 @@ import Xiaoding from './components/xiaoding';
 import Tudou from './components/tudou';
 import Fanqie from './components/fanqie';
 import Fengling from './components/fengling';
+import More from './components/more';
 //	初始化组件，这个位置有待考量
 new Vue(App);
 Vue.config.debug = true; //开启错误提示
@@ -38,6 +39,9 @@ const routes = [{
 },{
 	path : '/fengling',
 	component : Fengling
+},{
+	path : '/more',
+	component : More
 }]
 
 const router = new VueRouter({
