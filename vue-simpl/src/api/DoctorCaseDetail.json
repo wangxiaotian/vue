@@ -1,0 +1,59 @@
+{
+    "code" : 0,
+    "case_entity": {
+        "id": 1,
+        "doctor_id": 1,
+        "doctor_entity": {
+            "id": 1,
+            "name": "小明",
+            "sex": 1,
+            "head_img_path": "http://h.hiphotos.baidu.com/news/q%3D100/sign=2c16275b06b30f24339ae803f894d192/267f9e2f0708283848af502eb199a9014c08f16e.jpg",
+            "hospital": "上海第一人民医院",
+            "department": "皮肤科",
+            "title": "主任医师"
+        },
+        "title": "成功救治狼疮合并巨噬细胞激活综合症一例",
+        "content": "it is content",
+        "case_pic_list": [{
+            "id": 1,
+            "doctor_referral_id": 1,
+            "file_url": "..\/images\/info-pic.png"
+        }, {
+            "id": 2,
+            "doctor_referral_id": 2,
+            "file_url": "..\/images\/info-pic.png"
+        }, {
+            "id": 3,
+            "doctor_referral_id": 3,
+            "file_url": "..\/images\/info-pic.png"
+        }, {
+            "id": 4,
+            "doctor_referral_id": 4,
+            "file_url": "..\/images\/info-pic.png"
+        }, {
+            "id": 5,
+            "doctor_referral_id": 5,
+            "file_url": "..\/images\/info-pic.png"
+        }, {
+            "id": 6,
+            "doctor_referral_id": 6,
+            "file_url": "..\/images\/info-pic.png"
+        }],
+        "create_date": "20161108112742",
+        "read_count": 66,
+        "patient_info_list": [{
+            "id": 3145145554,
+            "patient_id": 1234234324,
+            "patient_sex": "1男",
+            "patient_age": "35",
+            "patient_disease_list": [{
+                "disease_id": 4526436134,
+                "disease_name": "腰肌劳损",
+                "disease_type": "正常疾病",
+                "other_disease_name": "其它疾病名称"
+            }],
+            "disease": "病程，什么鬼"
+        }],
+        "last_sort_id": ""
+    }
+}

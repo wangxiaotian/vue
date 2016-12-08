@@ -41,14 +41,19 @@ gulp.task('connect',function(){
 // 自动刷新？明白了，其实这里监控的是转化后的文件的变化，并不是转化前的，
 // 它进行刷新时，应该是刷新的某一个文件目录
 gulp.task('html',function(){
-	gulp.src('./dest/page-test/*.html')
+	gulp.src('./src/page/*.html')
 	.pipe(connect.reload())
 	
 })
-
+gulp.task('js',function(){
+	gulp.src('./src/scripts/*.js')
+	.pipe(connect.reload())
+	
+})
 // 监听文件
 gulp.task('watch',function(){
-	gulp.watch(['./dest/page-test/*.html'],['html'])
+	gulp.watch(['./src/page/*.html'],['html']);
+	gulp.watch(['./src/scripts/*.js'],['js'])
 })
 
 
