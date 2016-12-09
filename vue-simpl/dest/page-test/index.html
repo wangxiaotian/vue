@@ -77,6 +77,8 @@
 	</div>
 	<div id="app16">
 		<input type="radio" v-model="pick" v-bind:value="a">
+		<span>{{pick}}</span>
+		<input type="text" v-model= "age" type="number">
 	</div>
 	<script>
 		var a = new Vue({
@@ -153,7 +155,7 @@
 			data : {
 				a: 1
 			},
-			created: function(){
+			mounted: function(){
 				console.log('a is:' + this.a)
 			}
 		})
@@ -206,7 +208,13 @@
 				checkedNames: []
 			}
 		})
-		
+		var p = new Vue({
+			el: '#app16',
+			data: {
+				pick : '',
+				age : 1
+			}
+		})
 	</script>
 </body>
 </html>
