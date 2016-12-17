@@ -11,12 +11,3 @@ new Vue(page);
 
 Vue.config.debug = true;//开启错误提示
 //	这个其实是在初始化vue实例吧
-
-router.map({
-	'/' : {
-		name : 'index',
-		components : page
-	}
-})
-
-router.start(app,'page');
