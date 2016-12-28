@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue lowLevel</title>
+    <style>
+    div {
+        padding: 10px;
+    }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h3>data and dom</h3>
+        <div>
+            hello：<span id="app1"></span><br>
+			oh，<span id = "app2"></span>
+        </div>
+    </div>
+    <script>
+    window.onload = function() {
+        var user = {};
+        Object.defineProperty(user, 'name', {
+            get: function() {
+                return document.getElementById('app1').innerHTML;
+            },
+            set: function(newVale) {
+                document.getElementById('app1').innerHTML = newVale;
+            }
+        })
+        Object.defineProperty(user, 'info', {
+            get: function() {
+                return document.getElementById('app2').innerHTML;
+            },
+            set: function(newVale) {
+                document.getElementById('app2').innerHTML = newVale;
+            }
+        })
+        //	dom bind data
+        user.name = "Mr white";
+        user.info = "Walter White aka Heisenberg";
+    }
+    </script>
+</body>
+
+</html>
