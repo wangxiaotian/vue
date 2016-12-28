@@ -1,7 +1,7 @@
 <script>
     //es6 
     export default {
-        el:"#app",
+        el:"#nav",
          //data:function(){}，下面是es6写法
          data () {
             return {
@@ -12,17 +12,9 @@
     }
 </script>
 <template>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="javascript:;">主页</a></li>
-                <li><a href="javascript:;">商城</a></li>
-                <li><a href="javascript:;">列表</a></li>
-                <li><a href="javascript:;">购物车</a></li>
-                <li><a href="javascript:;">关于</a></li>
-            </ul>
-        </nav>
-    </header>
+    <router-link to = "/foo">Go to Foo</router-link>
+    <router-link to = "/bar">Go to Bar</router-link>
+    <router-view></router-view>
 </template>
 <style lang="sass">
     /*一定要加lang不然无法编译*/

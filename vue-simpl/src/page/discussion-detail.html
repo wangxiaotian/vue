@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Basic Page Needs-->
+    <meta charset="utf-8">
+    <link rel="dns-prefetch" href="" />
+    <title>首页</title>
+    <meta name="author" content="" />
+    <meta name="copyright" content="" />
+    <meta name="keywords" content="">
+    <!-- 删除默认的苹果工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 控制状态栏显示样式 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- 禁止使用手机自带的格式检测 -->
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 禁止用户对手机的缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="icon" href="" type="image/x-icon">
+    <!-- css files -->
+    <!-- base styles -->
+    <!--<link rel="stylesheet" type="text/css" href="./styles/index.css">-->
+    <script src="../scripts/vue.js"></script>
+    <script src="../scripts/vue-resource.js"></script>
+</head>
+
+<body>
+    <div class="viewport" data-url="../api/" data-mock="1">
+        <link rel="stylesheet" type="text/css" href="../styles/discussion-detail.css">
+        <div class="body" id="app">
+            <div class="head">
+                <div class="avatar-box">
+                    <span class="avatar" v-bind:style="handlePic"></span>
+                </div>
+                <div class="avatar-label">
+                    <div class="title-size">姓名:{{data.case_entity.doctor_entity.name}}</div>
+                    <div class="text-size colorGray">医院:{{data.case_entity.doctor_entity.hospital}}</div>
+                    <div class="text-size colorGray">科室:{{data.case_entity.doctor_entity.department}}</div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="content-title title-size">{{data.case_entity.title}}</div>
+                <div class="content-date text-size colorGray">{{data.case_entity.create_date}}</div>
+                <div class="info text-size">
+                    {{data.case_entity.content}}
+                </div>
+                <div class="pic-box">
+                    <a v-for="pic in handlePics" href="javascript:;"><img class="pic" :src="pic.file_url" alt=""></a>
+                </div>
+                <div v-if="ok">{{message}}</div>
+                <div v-else>{{another}}</div>
+            </div>
+
+            <div class="title">
+                <span>最新回复</span>
+            </div>
+
+            <div class="page">
+                <div class="repeat_list">
+                    <div class="case_item">
+                        <div class="item" v-for="item in items">
+                            <div class="header">
+                                <div class="pic">
+                                    <img :src="item.doctor_entity.head_img_path || (item.doctor_entity.sex == 1 ? '../images/yc_defaultWoman@2x.png' : '../images/yc_defaultMan@2x.png')" alt="医生头像">
+                                </div>
+                                <div class="header_info">
+                                    <span>{{item.doctor_entity.name}}</span>
+                                    <span>{{item.doctor_entity.hospital}}</span>
+                                </div>
+                                <div class="time">
+                                    <span>{{item.create_date}}</span>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <p>{{item.content}}</p>
+                            </div>
+                            <div class="end">
+                                <div class="great">
+                                    <a href="javascript:;"><i class = "great_active"></i></a><span>{{item.like_count || 0}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="view">
+                    <a href="javascript:;"><i></i><span>查看病历</span></a>
+                </div>
+                <div class="repeat" @click="toggle">
+                    <a href="javascript:;"><i v-bind:class="{ i_on:isActive }"></i><span v-bind:style="style">最新回复</span></a>
+                </div>
+                <div class="discuss">
+                    <a href="javascript:;"><i></i><span>参与讨论</span></a>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="../scripts/discussion-detail.js"></script>
+    </div>
+</body>
+
+</html>

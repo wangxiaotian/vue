@@ -1,15 +1,5 @@
 <template>
-	<header>
-        <nav>
-            <ul>
-                <li><a href="javascript:;">主页</a></li>
-                <li><a href="javascript:;">商城</a></li>
-                <li><a href="javascript:;">列表</a></li>
-                <li><a href="javascript:;">购物车</a></li>
-                <li><a href="javascript:;">关于</a></li>
-            </ul>
-        </nav>
-    </header>
+	
 	<div class="page">
 		<div class="list">
 			<div class="item">
@@ -37,6 +27,38 @@
 </template>
 
 <style lang = "sass">
+	$qwe:#f5f5f5;
+	*{
+		padding:0;
+		margin:0;
+	}
+    body{
+        background-color: $qwe;
+        header{
+            width:800px;
+            margin:0 auto;
+            background:#fff;
+            margin-bottom:20px;
+            nav{
+                width:100%;
+                ul{
+                    width:100%;
+                    overflow:hidden;
+                    display: flex;
+                    padding:20px 0;
+                    li{
+                        list-style:none;
+                        float:left;
+                        flex:1;
+                        text-align:center;
+                        a{
+                            text-decoration:none;
+                        }
+                    }
+                }
+            }
+        }
+    }
 	.page{
 		width:800px;
 		margin:0 auto;
