@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+
+<body>
+    <h3>test</h3>
+    <script>
+    window.onload = function() {
+        var bailRE = /[^\w.$]/;
+
+        function parsePath(path) {
+            if (bailRE.test(path)) {
+                return
+            } else {
+                var segments = path.split('.');
+                return function(obj) {
+                    for (var i = 0; i < segments.length; i++) {
+                        if (!obj) {
+                            return
+                        }
+                        obj = obj[segments[i]];
+                    }
+                    return obj
+                }
+            }
+        }
+
+        var a = parsePath('/a/b/c.html');
+        console.log(a);
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue original</title>
+	<script src = "vue.js"></script>
+</head>
+<body>
+	<h1>vue</h1>
+	<div id="app1">
+		{{message}}
+	</div>
+
+	<script>
+		new Vue({
+			el: '#app1',
+			data: {
+				message: 'hello Vue'
+			}
+		})
+		var b = (function(){
+			console.log('匿名函数赋值给变量');
+			function nihao(){
+				console.log('嵌套里的匿名函数')
+			}
+		});
+		console.log(b);
+		var c = b();
+		console.log(c);
+		(function(global,factory){
+			console.log(typeof exports === 'object' && typeof module !== 'undefined');
+			console.log(typeof define === 'function' && define.amd);
+			console.log(typeof a ===1);
+			global.vue = factory();
+		}(this,(function(){
+			console.log('不太明白')
+		})))
+	</script>
+</body>
+</html>

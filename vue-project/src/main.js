@@ -16,7 +16,7 @@ new Vue(App);
 Vue.config.debug = true; //开启错误提示
 
 
-/*//	使用vue插件
+//	使用vue插件
 Vue.use(VueRouter);
 Vue.use(VueResource);
  
@@ -50,4 +50,4 @@ const router = new VueRouter({
 
 const app = new Vue({
 	router
-}).$mount('#app');*/
+}).$mount('#app');
