@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>select</title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-resource.js"></script>
+</head>
+
+<body>
+    <p>vue 组件-select</p>
+    <ul>
+        <li>1. 有对应数据接口，从接口拿数据</li>
+        <li>2. 省去传统模板的编写</li>
+        <li>!  vue-resource请求接口返回的数据是一个封装对象</li>
+    </ul>
+    <div id="app">
+        <select name="">
+            <option :value=option.id v-for="option in options">{{option.name}}</option>
+        </select>
+    </div>
+    <script>
+    new Vue({
+        el: '#app',
+        data: function() {
+            return {
+                options: ''
+            }
+        },
+        methods: {
+            getData: function() {
+                var that = this;
+                this.$http.get('/vue-pratice/api/select.json')
+                    .then(function(res) {
+                    	var data = res.data.data;
+                    	data.unshift({name:'请选择姓名'})
+                        this.options = res.data.data;
+                    }, function(res) {
+                        alert('请求失败')
+                    })
+            },
+            test: function() {
+                var data = [{
+                    name: '1'
+                }, {
+                    name: '2'
+                }];
+                this.options = data;
+            }
+        },
+        created: function() {
+            this.getData();
+            //this.test();
+        },
+        computed: {
+            selec: function() {
+                this.options = this.me_data;
+            }
+        },
+        updated: function() {
+            console.log(this.options);
+        }
+    })
+    </script>
+</body>
+
+</html>

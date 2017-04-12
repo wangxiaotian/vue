@@ -108,4 +108,4 @@ gulp.task('watch',function(){
 	gulp.watch(['./**/*.html'],['html'])
 })
 
-gulp.task('server',['connect','watch']);
+gulp.task('server',['connect']);
