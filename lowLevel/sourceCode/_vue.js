@@ -112,7 +112,7 @@
     });
     /*
      *  ：0321
-    */
+     */
     /**
      * Hyphenate a camelCase string.
      */
@@ -238,7 +238,7 @@
     }
     /*
      *      ？ scene
-    */
+     */
     function looseIndexOf(arr, val) {
         for (var i = 0; i < arr.length; i++) {
             if (looseEqual(arr[i], val)) {
@@ -386,7 +386,7 @@
 
     /*  */
     /* globals MutationObserver */
-            //  in 啊
+    //  in 啊
 
     // can we use __proto__?
     var hasProto = '__proto__' in {};
@@ -401,7 +401,7 @@
     var isIOS = UA && /iphone|ipad|ipod|ios/.test(UA);
     /*
      *  ：0322
-    */
+     */
     // this needs to be lazy-evaled because vue may be required before
     // vue-server-renderer can set VUE_ENV
     var _isServer;
@@ -418,7 +418,7 @@
         }
         return _isServer
     };
-
+    //  ：detect ,检查
     // detect devtools
     var devtools = inBrowser && window.__VUE_DEVTOOLS_GLOBAL_HOOK__;
 
@@ -443,7 +443,7 @@
                 copies[i]();
             }
         }
-
+        //  0323
         // the nextTick behavior leverages the microtask queue, which can be accessed
         // via either native Promise.then or MutationObserver.
         // MutationObserver has wider support, however it is seriously bugged in
@@ -565,23 +565,24 @@
     }
 
     /*  */
-
+    //      0324        好多不知道的新东西，不知道的应用场景
 
     var uid$1 = 0;
 
-    /**
+    /** ：subscribe,订阅者
      * A dep is an observable that can have multiple
      * directives subscribing to it.
      */
     var Dep = function Dep() {
         this.id = uid$1++;
+        //  ：订阅列表
         this.subs = [];
     };
-
+    //  ：添加订阅
     Dep.prototype.addSub = function addSub(sub) {
         this.subs.push(sub);
     };
-
+    //  ：取消订阅
     Dep.prototype.removeSub = function removeSub(sub) {
         remove$1(this.subs, sub);
     };
@@ -591,7 +592,7 @@
             Dep.target.addDep(this);
         }
     };
-
+    //  ：notify,通知  stablize，稳定
     Dep.prototype.notify = function notify() {
         // stablize the subscriber list first
         var subs = this.subs.slice();
@@ -599,7 +600,7 @@
             subs[i].update();
         }
     };
-
+    //  ：evaluated：评估   unique，独一无二的
     // the current target watcher being evaluated.
     // this is globally unique because there could be only one
     // watcher being evaluated at any time.
@@ -615,11 +616,11 @@
         Dep.target = targetStack.pop();
     }
 
-    /*
+    /*      ：dynamically,动态地
      * not type checking this file because flow doesn't play well with
      * dynamically accessing methods on Array prototype
      */
-
+    //  ：重造数组
     var arrayProto = Array.prototype;
     var arrayMethods = Object.create(arrayProto);
     [
@@ -634,8 +635,11 @@
     .forEach(function(method) {
         // cache original method
         var original = arrayProto[method];
+        /*
+         *  ：def(obj, key, val, enumerable) 
+        */
         def(arrayMethods, method, function mutator() {
-            var arguments$1 = arguments;
+            var arguments$1 = arguments;    //  ？很是困惑，这里调用的mutator明明没有参数
 
             // avoid leaking arguments:
             // http://jsperf.com/closure-with-arguments
@@ -666,10 +670,10 @@
     });
 
     /*  */
-
+    //  ：0326
     var arrayKeys = Object.getOwnPropertyNames(arrayMethods);
 
-    /**
+    /** ：nested,嵌套
      * By default, when a reactive property is set, the new value is
      * also converted to become reactive. However when passing down props,
      * we don't want to force conversion because the value may be a nested value
@@ -680,7 +684,7 @@
         isSettingProps: false
     };
 
-    /**
+    /** ：attached to,附属于，隶属于
      * Observer class that are attached to each observed
      * object. Once attached, the observer converts target
      * object's property keys into getter/setters that
@@ -688,6 +692,7 @@
      */
     var Observer = function Observer(value) {
         this.value = value;
+        //  ：第一次初始化dep
         this.dep = new Dep();
         this.vmCount = 0;
         def(value, '__ob__', this);
@@ -723,7 +728,7 @@
 
     // helpers
 
-    /**
+    /** ：augment,增强，加强  intercepting,截取
      * Augment an target Object or Array by intercepting
      * the prototype chain using __proto__
      */
@@ -1078,6 +1083,7 @@
 
     /**
      * Validate component names
+     * 验证组件名称
      */
     function checkComponents(options) {
         for (var key in options.components) {
@@ -1141,6 +1147,10 @@
     /**
      * Merge two option objects into a new one.
      * Core utility used in both instantiation and inheritance.
+     * ：@params parent  vm.options
+         @params child   options(原始参数)
+         @params vm      vm本身
+         @return    options     新定义的
      */
     function mergeOptions(
         parent,
@@ -1175,8 +1185,14 @@
                 mergeField(key);
             }
         }
-
+        //  ：strat , 策略
         function mergeField(key) {
+            //  ：strats , 空对象
+            /*
+             *  var defaultStrat = function(parentVal, childVal) {
+        return childVal === undefined ? parentVal : childVal
+    };
+            */
             var strat = strats[key] || defaultStrat;
             options[key] = strat(parent[key], child[key], vm, key);
         }
@@ -3335,7 +3351,10 @@
     /*  */
 
     var uid = 0;
-
+    /*
+     * ：给vue原型添加_init方法。
+     * ：：添加$options属性
+    */ 
     function initMixin(Vue) {
         Vue.prototype._init = function(options) {
             var vm = this;
@@ -3343,6 +3362,7 @@
             vm._uid = uid++;
             // a flag to avoid this being observed
             vm._isVue = true;
+            console.log((vm.constructor).options)
             // merge options
             if (options && options._isComponent) {
                 // optimize internal component instantiation
@@ -3350,6 +3370,8 @@
                 // internal component options needs special treatment.
                 initInternalComponent(vm, options);
             } else {
+                var test = vm.constructor;
+                var testA = test.options;
                 vm.$options = mergeOptions(
                     resolveConstructorOptions(vm.constructor),
                     options || {},
@@ -3360,7 +3382,7 @@
             {
                 initProxy(vm);
             }
-            // expose real self
+            // expose real self     ：expose 暴露
             vm._self = vm;
             initLifecycle(vm);
             initEvents(vm);
@@ -3408,7 +3430,7 @@
         }
         return options
     }
-
+    //  ：扩充vue构造函数
     function Vue$3(options) {
         if ("development" !== 'production' &&
             !(this instanceof Vue$3)) {
@@ -3416,9 +3438,11 @@
         }
         this._init(options);
     }
-
+    //  ：加工vue构造函数。
     initMixin(Vue$3);
+    //  ：add $data $set $delete
     stateMixin(Vue$3);
+    //  $on $once $off $emit
     eventsMixin(Vue$3);
     lifecycleMixin(Vue$3);
     renderMixin(Vue$3);
@@ -3638,6 +3662,7 @@
         Vue.nextTick = nextTick;
 
         Vue.options = Object.create(null);
+        //  config在100多行处有定义，这里是定义对象
         config._assetTypes.forEach(function(type) {
             Vue.options[type + 's'] = Object.create(null);
         });
@@ -3653,7 +3678,7 @@
         initExtend(Vue);
         initAssetRegisters(Vue);
     }
-
+    //  ：扩充vue构造函数
     initGlobalAPI(Vue$3);
 
     Object.defineProperty(Vue$3.prototype, '$isServer', {
@@ -6081,6 +6106,7 @@
     /*  */
 
     // install platform specific utils
+    //  ：扩充vue构造函数
     Vue$3.config.isUnknownElement = isUnknownElement;
     Vue$3.config.isReservedTag = isReservedTag;
     Vue$3.config.getTagNamespace = getTagNamespace;

@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>vue again</title>
 	<script src = "../scripts/vue.js"></script>
-	<script src = "../scripts/jquery.min.js"></script>
+	<!-- <script src = "../scripts/jquery.min.js"></script> -->
 	<style>
 		div{
 			padding:10px;
@@ -80,141 +80,149 @@
 		<span>{{pick}}</span>
 		<input type="text" v-model= "age" type="number">
 	</div>
-	<script>
-		var a = new Vue({
+<!-- 	<script>
+	var a = new Vue({
+		el : '#app',
+		data : {
+			message : 'Hello Vue!'
+		}
+	})
+	var b = new Vue({
+		el : '#app2',
+		data : {
+			message : 'hi ' + (new Date().getMonth()+1) + ' 月'
+		}
+	})
+	var c = new Vue({
+		el : '#app3',
+		data : {
+			seen : true
+		}
+	})
+	var d = new Vue({
+		el : '#app4',
+		data : {
+			items : [
+				{
+					name : '张三'
+				},{
+					name : '李四'
+				}
+			]
+		}
+	})
+	var e = new Vue({
+		el : '#app5',
+		data : {
+			message : '你好'
+		},
+		methods : {
+			something : function(){
+				this.message = this.message + new Date().getMonth();
+				var el = this.$el;
+				$(el).toggleClass('active');
+			}
+		}
+	})
+	var f = new Vue({
+		el : '#app6',
+		data : {
+			message : '你好'
+		}
+	})
+	Vue.component('todo-item',{
+		props: ['abc'],
+		template: '<li>{{abc.text}}</li>'
+	})
+	var g = new Vue({
+		el : '#app7',
+		data : {
+			items: [
+				{text : '1'},
+				{text : '2'},
+				{text : '三'}
+			]
+		}
+	})
+	Vue.component('item',{
+		template: '<p>这是一个模板</p>'
+	})
+	var h = new Vue({
+		el : '#app8'
+	})
+	var i = new Vue({
+		el : '#app9',
+		data : {
+			a: 1
+		},
+		mounted: function(){
+			console.log('a is:' + this.a)
+		}
+	})
+	var j = new Vue({
+		el : '#app10',
+		data : {
+			rawHtml :　'<p>这是插入的html</p>'
+		}
+	})
+	var k = new Vue({
+		el : '#app11',
+		data : {
+			message : 'c461dfga'
+		},
+		filters: {
+			filter1: function(value){
+				if(!value) return '';
+				value = value.toString();
+				return value.charAt(0).toUpperCase() + value.slice(3);
+			}
+		}
+	})
+	var l = new Vue({
+		el : '#app12',
+		data : {
+			message : 'click here',
+			url : '#'
+		},
+		methods: {
+			something: function(){
+				alert('hi boy!');
+			}
+		}
+	})
+	var m = new Vue({
+		el : '#app13',
+		data: {
+			counter: 0
+		}
+	})
+	var n = new Vue({
+		el: '#app14',
+		data: {
+			checked: true
+		}
+	})
+	var o = new Vue({
+		el: '#app15',
+		data: {
+			checkedNames: []
+		}
+	})
+	var p = new Vue({
+		el: '#app16',
+		data: {
+			pick : '',
+			age : 1
+		}
+	})
+</script> -->
+<script>
+	var a = new Vue({
 			el : '#app',
 			data : {
 				message : 'Hello Vue!'
 			}
 		})
-		var b = new Vue({
-			el : '#app2',
-			data : {
-				message : 'hi ' + (new Date().getMonth()+1) + ' 月'
-			}
-		})
-		var c = new Vue({
-			el : '#app3',
-			data : {
-				seen : true
-			}
-		})
-		var d = new Vue({
-			el : '#app4',
-			data : {
-				items : [
-					{
-						name : '张三'
-					},{
-						name : '李四'
-					}
-				]
-			}
-		})
-		var e = new Vue({
-			el : '#app5',
-			data : {
-				message : '你好'
-			},
-			methods : {
-				something : function(){
-					this.message = this.message + new Date().getMonth();
-					var el = this.$el;
-					$(el).toggleClass('active');
-				}
-			}
-		})
-		var f = new Vue({
-			el : '#app6',
-			data : {
-				message : '你好'
-			}
-		})
-		Vue.component('todo-item',{
-			props: ['abc'],
-			template: '<li>{{abc.text}}</li>'
-		})
-		var g = new Vue({
-			el : '#app7',
-			data : {
-				items: [
-					{text : '1'},
-					{text : '2'},
-					{text : '三'}
-				]
-			}
-		})
-		Vue.component('item',{
-			template: '<p>这是一个模板</p>'
-		})
-		var h = new Vue({
-			el : '#app8'
-		})
-		var i = new Vue({
-			el : '#app9',
-			data : {
-				a: 1
-			},
-			mounted: function(){
-				console.log('a is:' + this.a)
-			}
-		})
-		var j = new Vue({
-			el : '#app10',
-			data : {
-				rawHtml :　'<p>这是插入的html</p>'
-			}
-		})
-		var k = new Vue({
-			el : '#app11',
-			data : {
-				message : 'c461dfga'
-			},
-			filters: {
-				filter1: function(value){
-					if(!value) return '';
-					value = value.toString();
-					return value.charAt(0).toUpperCase() + value.slice(3);
-				}
-			}
-		})
-		var l = new Vue({
-			el : '#app12',
-			data : {
-				message : 'click here',
-				url : '#'
-			},
-			methods: {
-				something: function(){
-					alert('hi boy!');
-				}
-			}
-		})
-		var m = new Vue({
-			el : '#app13',
-			data: {
-				counter: 0
-			}
-		})
-		var n = new Vue({
-			el: '#app14',
-			data: {
-				checked: true
-			}
-		})
-		var o = new Vue({
-			el: '#app15',
-			data: {
-				checkedNames: []
-			}
-		})
-		var p = new Vue({
-			el: '#app16',
-			data: {
-				pick : '',
-				age : 1
-			}
-		})
-	</script>
+</script>
 </body>
 </html>
