@@ -69,5 +69,37 @@
 			})
 		})
 	</script>
+	<!-- 实例 -->
+	<div id="app">
+		<h3>{{user}}</h3>
+		<my-list></my-list>
+	</div>
+	<script>
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				user: '用户列表'
+			},
+			components: {
+				'my-list': {
+					template: '<ul><li :class = "\'user\' + index" v-for = "(user,index) in userData">用户-{{user.name}}</li></ul>',
+					data: function(){
+						return {
+							userData: [{
+								name: '张一名',
+								id: 'aa'
+							},{
+								name: '李三丁',
+								id: 'bb'
+							},{
+								name: '王二小',
+								id: 'cc'
+							}]
+						}
+					}
+				}
+			}
+		})
+	</script>
 </body>
 </html>
