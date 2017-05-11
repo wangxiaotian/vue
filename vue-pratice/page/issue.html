@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>表单控件绑定</title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="app1">
+        <h3>You may have an infinite update loop in a component render function. 
+(found in component)</h3>
+        <my-app1></my-app1>
+    </div>
+    <script>
+    $(function(){
+        new Vue({
+            el: '#app1',
+            data: {
+                msg: 'hello'
+            }
+        })
+    })
+    </script>
+</body>
+
+</html>

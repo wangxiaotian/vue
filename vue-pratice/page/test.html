@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>表单控件绑定</title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <style>
+    	.test{
+    		margin:20px 0;
+    	}
+    </style>
+</head>
+
+<body>
+    <div class = "test" id="test1">
+        <p v-for = "item in list" :status = "status.status" :test = "msg">{{msg.c}}</p>
+        <button @click = "change">更改数据</button>
+    </div>
+    <script>
+        $(function(){
+            var a  =1
+            var vm = new Vue({
+                el: '#test1',
+                data: {
+                    msg: '',
+                    status: {
+                        status: 1
+                    },
+                    list: [1,2,2,2]
+                },
+                methods: {
+                    text: function(status){
+                        var res;
+                        switch(status){
+                            case 1:
+                                res = 'a=1的状态';
+                                break;
+                            case 2:
+                                res = 'a=2的状态';
+                                break;
+                            case 3:
+                                res = 'a=3的状态';
+                                break;
+                            default:
+                                res = '未知状态';
+                        }
+                        return res;
+                    },
+                    initData: function(){
+                        var arr = ['a','b','c']
+                        this.msg = {
+                            a: '',
+                            b: '',
+                            c: this.text(this.status.status)
+                        }
+                    },
+                    change: function(){
+                        var list = [1,2,3],
+                            idx = list.indexOf(this.status.status)
+                        var needIdx = parseInt(idx) + 1;
+                        if(needIdx > 3) return;
+                        this.msg.c = this.text(needIdx);
+                        this.status.status = (needIdx + 1);
+                    }
+                },
+                mounted: function(){
+                    this.initData();
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
