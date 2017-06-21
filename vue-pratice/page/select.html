@@ -8,7 +8,7 @@
     <script src="../js/vue-resource.js"></script>
 </head>
 
-<body>
+<body> 
     <p>vue 组件-select</p>
     <ul>
         <li>1. 有对应数据接口，从接口拿数据</li>
@@ -39,27 +39,7 @@
                     }, function(res) {
                         alert('请求失败')
                     })
-            },
-            test: function() {
-                var data = [{
-                    name: '1'
-                }, {
-                    name: '2'
-                }];
-                this.options = data;
             }
-        },
-        created: function() {
-            this.getData();
-            //this.test();
-        },
-        computed: {
-            selec: function() {
-                this.options = this.me_data;
-            }
-        },
-        updated: function() {
-            console.log(this.options);
         }
     })
     </script>

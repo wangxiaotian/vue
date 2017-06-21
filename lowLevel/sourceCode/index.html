@@ -12,14 +12,18 @@
     <div id="app">
         <p>{{message}}</p>
         <span id="test">哇哈哈</span>
+        <button>change</button>
     </div>
     <script>
-        new Vue({
+        var vm = new Vue({
             el: '#app',
             data: {
                 message: '哈哈'
             }
         })
+        document.querySelector('button').onclick = function(){
+            vm.$data.message = 'change'
+        }
         var app = document.querySelector('#app');
         var test = document.querySelector('#test');
         test.outerHTML = '<i>啊呵呵</i>'

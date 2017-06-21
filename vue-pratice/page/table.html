@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>table</title>
+	<script src="../js/vue.js"></script>
+    <script src="../js/vue-resource.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+    	table,tr,td,th{
+    		border:1px solid #ccc;
+    		border-collapse:collapse; 
+    	}
+		tr,td,th{
+			padding:5px;
+		}
+    </style>
+</head>
+<body>
+	<h3>table组件</h3>
+	<ul>
+		<li>1. 根据接口数据渲染</li>
+		<li>2. 查询</li>
+		<li>3. 操作</li>
+	</ul>
+	<div class="" id="table">
+		<table>
+			<thead>
+				<tr>
+					<th v-for = "th in thead">{{th.alias}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for = "item in tbody">
+					<td v-for = "th in thead" :data-alias = item.id>{{item[th.name]}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script>
+		var ops = [{
+			name: 'name',
+			alias: '姓名'
+		},{
+			name: 'job',
+			alias: '工作'
+		},{
+			name: 'phone',
+			alias: '电话'
+		},{
+			name: 'operations',
+			alias: '操作'
+		}]
+		var table = new Vue({
+			el: '#table',
+			data: {
+				thead: ops,
+				tbody: ''
+			},
+			methods: {
+				getData: function(){
+					var that = this;
+					axios.get('/vue-pratice/api/table.json')
+						.then(function(res){
+							var data = res.data.data.trData;
+							that.tbody = data;
+							debugger;
+						})
+						.catch(function(error){
+							alert(error);
+						})
+				}
+			},
+			computed: {
+				tbodyData: function(){
+					this.tbody.forEach(function(el,index){
+						el.operations = '<a href = "javascript:;">查看</a>';
+						console.log(el);
+					})
+
+				}
+			},
+			mounted: function(){
+				this.getData();
+			}
+		})
+	</script>
+</body>
+</html>

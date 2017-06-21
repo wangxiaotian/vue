@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue question</title>
+	<script src="../js/vue.js"></script>
+</head>
+<body>
+	<div id="q1">
+		<p>disabled属性在用三元操作符操作时，和预期效果不一样。一直显示disabled = disabled</p>
+		<input type="text" :disabled = "message > 0 ? false : true">
+	</div>
+	<script>
+		var q1 = new Vue({
+			el: '#q1',
+			data: {
+				message: 1
+			}
+		})
+	</script>
+</body>
+</html>
