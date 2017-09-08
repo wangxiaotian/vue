@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <title>vue again</title>
     <script src="../scripts/vue.js"></script>
@@ -26,6 +27,207 @@
         <span v-bind:title="message">
 			将鼠标移向这里			
 		</span>
+	</div>
+	<div id="app3">
+		<p v-if = "seen">Now you see me</p>
+	</div>
+	<div id="app4">
+		<ul>
+			<li v-for = "item in items">{{item.name}}</li>
+		</ul>
+	</div>
+	<div id="app5">
+		<p>{{message}}</p>
+		<button v-on:click = "something">click here</button>
+	</div>
+	<div id="app6">
+		<p>{{message}}</p> 
+		<input type="text" v-model = "message">
+	</div>
+	<div id="app7">
+		<ul>
+			<todo-item v-for = "item in items" :abc = "item"></todo-item>
+		</ul>
+	</div>
+	<div id="app8">
+		<item></item>
+	</div>
+	<div id="app9">
+		<div>{{a}}，你好</div>
+	</div>
+	<div id = "app10" v-html= "rawHtml"></div>
+	<div id="app11">
+		<p>{{message | filter1}}</p>
+	</div>
+	<div id="app12">
+		<a type = "button" :href = "url" @click = "something">{{message}}</a>
+	</div>
+	<div id="app13">
+		<button @click="counter += 1">增加 1</button>
+		<p>这个按钮被点击了{{counter}}次</p>
+	</div>
+	<div id="app14">
+		<input type="checkbox" id="checkbox" v-model="checked">
+		<label for="checkbox">{{checked}}</label>
+	</div>
+	<div id="app15">
+		<input type="checkbox" id = "jack" value = "Jack" v-model = "checkedNames">
+		<label for="jack">Jack</label>
+		<input type="checkbox" id = "john" value = "John" v-model = "checkedNames">
+		<label for="jack">Jack</label>
+		<input type="checkbox" id = "mike" value = "Walter" v-model = "checkedNames">
+		<label for="jack">Jack</label><br>
+		<span>Checked names:{{checkedNames}}</span>
+	</div>
+	<div id="app16">
+		<input type="radio" v-model="pick" v-bind:value="a">
+		<span>{{pick}}</span>
+		<input type="text" v-model= "age" type="number">
+	</div>
+<!-- 	<script>
+	var a = new Vue({
+		el : '#app',
+		data : {
+			message : 'Hello Vue!'
+		}
+	})
+	var b = new Vue({
+		el : '#app2',
+		data : {
+			message : 'hi ' + (new Date().getMonth()+1) + ' 月'
+		}
+	})
+	var c = new Vue({
+		el : '#app3',
+		data : {
+			seen : true
+		}
+	})
+	var d = new Vue({
+		el : '#app4',
+		data : {
+			items : [
+				{
+					name : '张三'
+				},{
+					name : '李四'
+				}
+			]
+		}
+	})
+	var e = new Vue({
+		el : '#app5',
+		data : {
+			message : '你好'
+		},
+		methods : {
+			something : function(){
+				this.message = this.message + new Date().getMonth();
+				var el = this.$el;
+				$(el).toggleClass('active');
+			}
+		}
+	})
+	var f = new Vue({
+		el : '#app6',
+		data : {
+			message : '你好'
+		}
+	})
+	Vue.component('todo-item',{
+		props: ['abc'],
+		template: '<li>{{abc.text}}</li>'
+	})
+	var g = new Vue({
+		el : '#app7',
+		data : {
+			items: [
+				{text : '1'},
+				{text : '2'},
+				{text : '三'}
+			]
+		}
+	})
+	Vue.component('item',{
+		template: '<p>这是一个模板</p>'
+	})
+	var h = new Vue({
+		el : '#app8'
+	})
+	var i = new Vue({
+		el : '#app9',
+		data : {
+			a: 1
+		},
+		mounted: function(){
+			console.log('a is:' + this.a)
+		}
+	})
+	var j = new Vue({
+		el : '#app10',
+		data : {
+			rawHtml :　'<p>这是插入的html</p>'
+		}
+	})
+	var k = new Vue({
+		el : '#app11',
+		data : {
+			message : 'c461dfga'
+		},
+		filters: {
+			filter1: function(value){
+				if(!value) return '';
+				value = value.toString();
+				return value.charAt(0).toUpperCase() + value.slice(3);
+			}
+		}
+	})
+	var l = new Vue({
+		el : '#app12',
+		data : {
+			message : 'click here',
+			url : '#'
+		},
+		methods: {
+			something: function(){
+				alert('hi boy!');
+			}
+		}
+	})
+	var m = new Vue({
+		el : '#app13',
+		data: {
+			counter: 0
+		}
+	})
+	var n = new Vue({
+		el: '#app14',
+		data: {
+			checked: true
+		}
+	})
+	var o = new Vue({
+		el: '#app15',
+		data: {
+			checkedNames: []
+		}
+	})
+	var p = new Vue({
+		el: '#app16',
+		data: {
+			pick : '',
+			age : 1
+		}
+	})
+</script> -->
+<script>
+	var a = new Vue({
+			el : '#app',
+			data : {
+				message : 'Hello Vue!'
+			}
+		})
+</script>
     </div>
     <div id="app3">
         <p v-if="seen">Now you see me</p>

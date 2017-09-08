@@ -4,34 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <title>test</title>
+    <script src = "_vue.js"></script>
 </head>
 
 <body>
     <h3>test</h3>
+    <div id="app">
+        <p>{{message}}</p>
+        <span id="test">哇哈哈</span>
+        <button>change</button>
+    </div>
     <script>
-    window.onload = function() {
-        var bailRE = /[^\w.$]/;
-
-        function parsePath(path) {
-            if (bailRE.test(path)) {
-                return
-            } else {
-                var segments = path.split('.');
-                return function(obj) {
-                    for (var i = 0; i < segments.length; i++) {
-                        if (!obj) {
-                            return
-                        }
-                        obj = obj[segments[i]];
-                    }
-                    return obj
-                }
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                message: '哈哈'
             }
+        })
+        document.querySelector('button').onclick = function(){
+            vm.$data.message = 'change'
         }
-
-        var a = parsePath('/a/b/c.html');
-        console.log(a);
-    }
+        var app = document.querySelector('#app');
+        var test = document.querySelector('#test');
+        test.outerHTML = '<i>啊呵呵</i>'
     </script>
 </body>
 

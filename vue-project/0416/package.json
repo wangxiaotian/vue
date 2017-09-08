@@ -1,0 +1,22 @@
+{
+  "name": "0416",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot",
+    "server": "node ./server/index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "element-ui": "^1.0.0-rc.9",
+    "vue": "^2.2.6",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.2"
+  },
+  "dependencies": {
+    "vue-loader": "^11.3.4"
+  }
+}
